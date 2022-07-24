@@ -53,64 +53,65 @@ def main():
 
     i = 0
     j = 0
+    increment = 50
 
-    # for i in range(1, len(b)-60, 50):
-    while i < len(b)-50:
+    # for i in range(1, len(b)-60, increment):
+    while i < len(b)-increment:
         j = 0
-        # for j in range(1, len(b[i])-60, 50):
-        while j < len(b[i])-50:
+        # for j in range(1, len(b[i])-60, increment):
+        while j < len(b[i])-increment:
             # value = b[i][j] == [0, 0, 0, 255]
             # print(type(value))
             if (np.asarray(Colors.BLACK) == b[i][j]).all():
-                for k in range(50):
-                    for h in range(50):
+                for k in range(increment):
+                    for h in range(increment):
                         b[i+k][j+h] = 255, 255, 255, 255
 
             elif (np.asarray(Colors.PLATFORM) == b[i][j]).all():
                 print("test")
                 f.write("{} - X: {}, Y: {}{}".format("Platform", j, i, "\n"))
-                for k in range(50):
-                    for h in range(50):
+                for k in range(increment):
+                    for h in range(increment):
                         b[i+k][j+h] = b[i][j] = 0, 255, 255, 255
 
             elif (np.asarray(Colors.PLATFORM2) == b[i][j]).all():
                 f.write("{} - X: {}, Y: {}{}".format("PlatformObject", j, i, "\n"))
-                for k in range(50):
-                    for h in range(50):
+                for k in range(increment):
+                    for h in range(increment):
                         b[i+k][j+h] = 255, 0, 255, 255
 
             elif (np.asarray(Colors.PLATFORM3) == b[i][j]).all():
                 f.write("{} - X: {}, Y: {}{}".format("PlatformObject2", j, i, "\n"))
-                for k in range(50):
-                    for h in range(50):
+                for k in range(increment):
+                    for h in range(increment):
                         b[i+k][j+h] = 255, 255, 0, 255
 
             elif (np.asarray(Colors.WALL) == b[i][j]).all():
                 f.write("{} - X: {}, Y: {}{}".format("PlatformWall", j, i, "\n"))
-                for k in range(50):
-                    for h in range(50):
+                for k in range(increment):
+                    for h in range(increment):
                         b[i+k][j+h] = 255, 0, 0, 255
 
             elif (np.asarray(Colors.PLAYER) == b[i][j]).all():
                 f.write("{} - X: {}, Y: {}{}".format("Player", j, i, "\n"))
-                for k in range(50):
-                    for h in range(50):
+                for k in range(increment):
+                    for h in range(increment):
                         b[i+k][j+h] = 0, 255, 0, 255
 
             elif (np.asarray(Colors.ENEMY) == b[i][j]).all():
                 f.write("{} - X: {}, Y: {}{}".format("Enemy", j, i, "\n"))
-                for k in range(50):
-                    for h in range(50):
+                for k in range(increment):
+                    for h in range(increment):
                         b[i+k][j+h] = 0, 0, 255, 255
 
             elif (np.asarray(Colors.BOSS) == b[i][j]).all():
                 f.write("{} - X: {}, Y: {}{}".format("Boss", j, i, "\n"))
-                for k in range(50):
-                    for h in range(50):
+                for k in range(increment):
+                    for h in range(increment):
                         b[i+k][j+h] = 0, 0, 0, 255
 
-            j += 50
-        i += 50
+            j += increment
+        i += increment
 
     f.close()
 
