@@ -51,12 +51,44 @@ def main():
 
     f = open("coordinates.txt", "w")
 
-    for i in range(len(b)):
-        for j in range(len(b[i])):
-            value = b[i][j] == [0, 0, 0, 255]
-            if value.all():
-                f.write("X: {}, Y: {}{}".format(i, j, "\n"))
-                # b[i][j] = 255, 255, 255, 255
+    for i in range(0, len(b)-60, 50):
+        for j in range(0, len(b[i]), 50):
+            # value = b[i][j] == [0, 0, 0, 255]
+            # print(type(value))
+            if (np.asarray(Colors.BLACK) == b[i][j]).all():
+                for k in range(50):
+                    for h in range(50):
+                        b[i+k][j+h] = 255, 255, 255, 255
+
+            # print(Colors.BLACK == b[i][j])
+
+            elif (np.asarray(Colors.PLATFORM) == b[i][j]).all():
+                f.write("{} - X: {}, Y: {}{}".format("Platform", j, i, "\n"))
+                b[i][j] = 0, 255, 255, 255
+
+            elif (np.asarray(Colors.PLATFORM2) == b[i][j]).all():
+                f.write("{} - X: {}, Y: {}{}".format("PlatformObject", j, i, "\n"))
+                b[i][j] = 255, 0, 255, 255
+
+            elif (np.asarray(Colors.PLATFORM3) == b[i][j]).all():
+                f.write("{} - X: {}, Y: {}{}".format("PlatformObject2", j, i, "\n"))
+                b[i][j] = 255, 255, 0, 255
+
+            elif (np.asarray(Colors.WALL) == b[i][j]).all():
+                f.write("{} - X: {}, Y: {}{}".format("PlatformWall", j, i, "\n"))
+                b[i][j] = 255, 0, 0, 255
+
+            elif (np.asarray(Colors.PLAYER) == b[i][j]).all():
+                f.write("{} - X: {}, Y: {}{}".format("Player", j, i, "\n"))
+                b[i][j] = 0, 255, 0, 255
+
+            elif (np.asarray(Colors.ENEMY) == b[i][j]).all():
+                f.write("{} - X: {}, Y: {}{}".format("Enemy", j, i, "\n"))
+                b[i][j] = 0, 0, 255, 255
+
+            elif (np.asarray(Colors.BOSS) == b[i][j]).all():
+                f.write("{} - X: {}, Y: {}{}".format("Boss", j, i, "\n"))
+                b[i][j] = 0, 0, 0, 255
 
     f.close()
 
