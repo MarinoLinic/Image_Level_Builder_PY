@@ -66,19 +66,31 @@ def main():
                 fill_color = invert_color(Colors.BLACK)
 
             elif (np.asarray(Colors.PLATFORM) == b[i][j]).all():
-                f.write("{} - X: {}, Y: {}{}".format("Platform", j, i, "\n"))
+                # f.write("{} - X: {}, Y: {}{}".format("Platform", j, i, "\n"))
+                f.write("Platform.generateRectangle({{x: {},{}y: {},{}w: 50, h: 50, "
+                        "sprite: {{default: `${{PATH_SPRITES}}/Level 2/Ground_450x100.png`}}}});{}"
+                        .format(j, "\t", i, "\t", "\n"))
                 fill_color = invert_color(Colors.PLATFORM)
 
             elif (np.asarray(Colors.PLATFORM2) == b[i][j]).all():
-                f.write("{} - X: {}, Y: {}{}".format("PlatformObject", j, i, "\n"))
+                # f.write("{} - X: {}, Y: {}{}".format("PlatformObject", j, i, "\n"))
+                f.write("Platform.generateRectangle({{x: {},{}y: {},{}w: 50, h: 50, "
+                        "sprite: {{default: `${{PATH_SPRITES}}/Level 2/Ground_450x100.png`}}}});{}"
+                        .format(j, "\t", i, "\t", "\n"))
                 fill_color = invert_color(Colors.PLATFORM)
 
             elif (np.asarray(Colors.PLATFORM3) == b[i][j]).all():
-                f.write("{} - X: {}, Y: {}{}".format("PlatformObject2", j, i, "\n"))
+                # f.write("{} - X: {}, Y: {}{}".format("PlatformObject2", j, i, "\n"))
+                f.write("Platform.generateRectangle({{x: {},{}y: {},{}w: 50, h: 50, "
+                        "sprite: {{default: `${{PATH_SPRITES}}/Level 2/Ground_450x100.png`}}}});{}"
+                        .format(j, "\t", i, "\t", "\n"))
                 fill_color = invert_color(Colors.PLATFORM)
 
             elif (np.asarray(Colors.WALL) == b[i][j]).all():
-                f.write("{} - X: {}, Y: {}{}".format("PlatformWall", j, i, "\n"))
+                # f.write("{} - X: {}, Y: {}{}".format("PlatformWall", j, i, "\n"))
+                f.write("Platform.generateRectangle({{x: {},{}y: {},{}w: 50, h: 50, "
+                        "sprite: {{default: `${{PATH_SPRITES}}/Level 2/Ground_450x100.png`}}}});{}"
+                        .format(j, "\t", i, "\t", "\n"))
                 fill_color = invert_color(Colors.WALL)
 
             elif (np.asarray(Colors.PLAYER) == b[i][j]).all():
